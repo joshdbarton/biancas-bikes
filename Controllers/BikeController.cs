@@ -24,13 +24,22 @@ public class BikeController : ControllerBase
     {
         return Ok(_dbContext
             .Bikes
+            .Include(b => b.Owner)
             .Select(b => new BikeDTO
             {
                 Id = b.Id,
                 Brand = b.Brand,
                 Color = b.Color,
                 BikeTypeId = b.BikeTypeId,
-                OwnerId = b.OwnerId
+                OwnerId = b.OwnerId,
+                Owner = new OwnerDTO
+                {
+                    Id = b.Owner.Id,
+                    Name = b.Owner.Name,
+                    Address = b.Owner.Address,
+                    Email = b.Owner.Email,
+                    Telephone = b.Owner.Telephone
+                }
             })
             .ToList());
     }
