@@ -20,9 +20,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-      - run: pwd
-      - run: ls -a
-      - run: cd ${{env.DOTNET_ROOT}}/client
+      - run: cd client
       - run: npm install
       - run: npm run build
       - run: cp -r ./build/. ../wwwroot
