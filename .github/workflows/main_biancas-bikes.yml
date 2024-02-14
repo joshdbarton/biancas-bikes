@@ -20,10 +20,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-      - run: cd client
-      - run: npm install
-      - run: npm run build
-      - run: cp -r ./build/. ../wwwroot
+      - run: cd client && npm install
+      - run: cd client && npm run build
+      - run: cp -r ./client/build/. ./wwwroot/
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
