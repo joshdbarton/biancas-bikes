@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: '20.x'
       - run: pwd
+      - run: ls -a
       - run: cd ${{env.DOTNET_ROOT}}/client
       - run: npm install
       - run: npm run build
