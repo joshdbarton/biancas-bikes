@@ -59,7 +59,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'biancas-bikes'
+          app-name: 'biancas-bike-shop'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_894391BE2D124CE9B887134CEB65491C }}
           package: .
