@@ -16,6 +16,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: build front end
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - run: cd ${{env.DOTNET_ROOT}}/client
+      - run: npm install
+      - run: npm run build
+      - run: cp -r ./build/. ../wwwroot
+
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
