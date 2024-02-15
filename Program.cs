@@ -55,7 +55,7 @@ builder.Services.AddIdentityCore<UserProfile>(config =>
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // allows our api endpoints to access the database through Entity Framework Core
-builder.Services.AddNpgsql<BiancasBikesDbContext>(builder.Configuration["AZURE_POSTGRESQL_CONNECTIONSTRING"]);
+builder.Services.AddNpgsql<BiancasBikesDbContext>(builder.Configuration.GetConnectionString("AZURE_POSTGRESQL_CONNECTIONSTRING"));
 
 
 var app = builder.Build();
